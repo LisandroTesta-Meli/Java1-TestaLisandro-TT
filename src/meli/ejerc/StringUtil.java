@@ -37,23 +37,43 @@ public class StringUtil {
         return cadena;
     }
 
-    // Retorna un String[] conteniendo los elementos de arr
-    // representados como cadenas de caracteres
+    // Retorna un int[] conteniendo los elementos de arr
+    // representados como numeros enteros
     public static int[] toIntArray(String arr[])
     {
-        return null;
+        int[] cadena  = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            cadena[i] = Integer.parseInt(arr[i]);
+        }
+        return cadena;
+
+
+
+
     }
 
     // Retorna la longitud del elemento con mayor cantidad
     // de caracteres del array arr
     public static int maxLength(String arr[])
     {
-        return 0;
+        int maxLong = 0 ;
+        for (String s: arr) {
+            if (s.length() >maxLong){
+                maxLong = s.length();
+            }
+        }
+        return maxLong;
     }
 
     // Completa los elemento del arr agregando caracteres c
     // a la izquierda, dejando a todos con la longitud del mayor
     public static void lNormalize(String arr[], char c)
     {
+        int masLargo = maxLength(arr);
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = lpad(arr[i],masLargo-arr[i].length()+1,c);
+        }
+
+
     }
 }
